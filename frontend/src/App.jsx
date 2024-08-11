@@ -42,6 +42,8 @@ import Contact from "./component/layout/Contact/Contact.js";
 import About from "./component/layout/About/About.js";
 import NotFound from "./component/layout/Not Found/NotFound.js";
 
+axios.defaults.withCredentials = true;
+
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
 
@@ -52,7 +54,6 @@ function App() {
       "https://ecommerce-gules-six.vercel.app/api/v1/stripeapikey"
     );
     setStripeApiKey(data.stripeApiKey);
-    console.log(stripeApiKey);
   }
 
   useEffect(() => {
