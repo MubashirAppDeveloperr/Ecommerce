@@ -29,7 +29,6 @@ app.use(
     },
     {
       origin: ["https://ecommerce-frontend-eight-pearl.vercel.app"],
-      methods: ["POST", "GET"],
       credentials: true,
     }
   )
