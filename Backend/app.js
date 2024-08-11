@@ -22,16 +22,10 @@ const app = express();
 dotenv.config({ path: "Backend/config/config.env" });
 
 app.use(
-  cors(
-    {
-      origin: "http://localhost:5173",
-      credentials: true,
-    },
-    {
-      origin: "https://ecommerce-frontend-eight-pearl.vercel.app",
-      credentials: true,
-    }
-  )
+  cors({
+    origin: "https://ecommerce-frontend-eight-pearl.vercel.app",
+    credentials: true,
+  })
 );
 app.use(express.json());
 app.use(cookieParser());
