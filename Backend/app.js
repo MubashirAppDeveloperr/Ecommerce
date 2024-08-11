@@ -10,17 +10,29 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import fileUpload from "express-fileupload";
 import dotenv from "dotenv";
-import path from "path"
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 
 dotenv.config({ path: "Backend/config/config.env" });
 
 app.use(
-  cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-  })
+  cors(
+    {
+      origin: "http://localhost:5173",
+      credentials: true,
+    },
+    {
+      origin: ["https://deploy-mern-1whq.vercel.app"],
+      methods: ["POST", "GET"],
+      credentials: true,
+    }
+  )
 );
 app.use(express.json());
 app.use(cookieParser());
@@ -33,11 +45,11 @@ app.use("/api/v1", order1);
 app.use("/api/v1", order2);
 app.use("/api/v1", payment);
 
-app.use(express.static(path.join(__dirname, "../frontend/dist"));
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-app.get("*", (req, res)=>{
-  res.sendFile(path.resolve(__dirname, "../frontend/dist/index.html"))
-})
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../frontend/dist/index.html"));
+});
 
 app.use(errorMiddleware);
 export default app;
