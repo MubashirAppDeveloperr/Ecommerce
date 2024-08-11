@@ -28,7 +28,7 @@ app.use(
       credentials: true,
     },
     {
-      origin: ["https://ecommerce-frontend-eta-mauve.vercel.app/"],
+      origin: ["https://ecommerce-frontend-kappa-pied.vercel.app"],
       methods: ["POST", "GET"],
       credentials: true,
     }

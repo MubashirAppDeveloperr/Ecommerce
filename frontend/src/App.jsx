@@ -49,7 +49,7 @@ function App() {
 
   async function getStripeApiKey() {
     const { data } = await axios.get(
-      "http://localhost:4000/api/v1/stripeapikey"
+      "https://ecommerce-gules-six.vercel.app/api/v1/stripeapikey"
     );
     setStripeApiKey(data.stripeApiKey);
     console.log(stripeApiKey);
