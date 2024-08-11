@@ -66,11 +66,6 @@ function App() {
   }, []);
 
   window.addEventListener("contextmenu", (e) => e.preventDefault());
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> 510431a0a6e401d0991f397385b56aa0a4a73e00
   return (
     <Router>
       <Header />
