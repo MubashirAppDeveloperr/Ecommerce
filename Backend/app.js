@@ -28,7 +28,7 @@ app.use(
       credentials: true,
     },
     {
-      origin: ["https://ecommerce-frontend-eight-pearl.vercel.app"],
+      origin: "https://ecommerce-frontend-eight-pearl.vercel.app",
       credentials: true,
     }
   )
