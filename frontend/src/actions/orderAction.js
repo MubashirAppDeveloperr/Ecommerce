@@ -34,7 +34,7 @@ export const createOrder = (order) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      "http://localhost:4000/api/v1/order1/new",
+      "https://ecommerce-gules-six.vercel.app/order1/new",
       order,
       config
     );
@@ -52,13 +52,13 @@ export const myOrders = () => async (dispatch) => {
     dispatch({ type: MY_ORDERS_REQUEST });
 
     const { data } = await axios.get(
-      "http://localhost:4000/api/v1/order2/myOrders"
+      "https://ecommerce-gules-six.vercel.app/order2/myOrders"
     );
 
     dispatch({ type: MY_ORDERS_SUCCESS, payload: data.orders });
   } catch (error) {
     dispatch({
-      type: CREATE_ORDER_FAIL,
+      type: MY_ORDERS_FAIL,
       payload: error.response.data.message,
     });
   }
@@ -69,7 +69,7 @@ export const getAllOrders = () => async (dispatch) => {
     dispatch({ type: ALL_ORDERS_REQUEST });
 
     const { data } = await axios.get(
-      "http://localhost:4000/api/v1/admin/orders"
+      "https://ecommerce-gules-six.vercel.app/admin/orders"
     );
 
     dispatch({ type: ALL_ORDERS_SUCCESS, payload: data.orders });
@@ -91,7 +91,7 @@ export const updateOrder = (id, order) => async (dispatch) => {
       },
     };
     const { data } = await axios.put(
-      `http://localhost:4000/api/v1/admin/order/${id}`,
+      `https://ecommerce-gules-six.vercel.app/admin/order/${id}`,
       order,
       config
     );
@@ -110,7 +110,7 @@ export const deleteOrder = (id) => async (dispatch) => {
     dispatch({ type: DELETE_ORDER_REQUEST });
 
     const { data } = await axios.delete(
-      `http://localhost:4000/api/v1/admin/order/${id}`
+      `https://ecommerce-gules-six.vercel.app/admin/order/${id}`
     );
 
     dispatch({ type: DELETE_ORDER_SUCCESS, payload: data.success });
@@ -127,7 +127,7 @@ export const getOrderDetails = (id) => async (dispatch) => {
     dispatch({ type: ORDER_DETAILS_REQUEST });
 
     const { data } = await axios.get(
-      `http://localhost:4000/api/v1/order1/${id}`
+      `https://ecommerce-gules-six.vercel.app/order1/${id}`
     );
 
     dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data.order });

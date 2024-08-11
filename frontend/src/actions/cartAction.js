@@ -7,7 +7,7 @@ import axios from "axios";
 
 export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
   const { data } = await axios.get(
-    `http://localhost:4000/api/v1/product/${id}`
+    `https://ecommerce-gules-six.vercel.app/product/${id}`
   );
 
   dispatch({
