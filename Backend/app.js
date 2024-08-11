@@ -28,7 +28,7 @@ app.use(
       credentials: true,
     },
     {
-      origin: ["https://deploy-mern-1whq.vercel.app"],
+      origin: ["https://ecommerce-frontend-eta-mauve.vercel.app/"],
       methods: ["POST", "GET"],
       credentials: true,
     }
