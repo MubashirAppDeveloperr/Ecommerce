@@ -37,10 +37,10 @@ export const getProduct =
     try {
       dispatch({ type: ALL_PRODUCT_REQUEST });
 
-      let link = `https://ecommerce-gules-six.vercel.app/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}`;
+      let link = `https://ecommerce-gules-six.vercel.app/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}`;
 
       if (category) {
-        link = `https://ecommerce-gules-six.vercel.app/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}`;
+        link = `https://ecommerce-gules-six.vercel.app/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}`;
       }
 
       const { data } = await axios.get(link);
@@ -61,7 +61,7 @@ export const getAdminProduct = () => async (dispatch) => {
     dispatch({ type: ADMIN_PRODUCT_REQUEST });
 
     const { data } = await axios.get(
-      `https://ecommerce-gules-six.vercel.app/admin/products`
+      `https://ecommerce-gules-six.vercel.app/api/v1/admin/products`
     );
 
     dispatch({
@@ -85,7 +85,7 @@ export const createProduct = (productData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `https://ecommerce-gules-six.vercel.app/admin/product/new`,
+      `https://ecommerce-gules-six.vercel.app/api/v1/admin/product/new`,
       productData,
       config
     );
@@ -107,7 +107,7 @@ export const getProductDetails = (id) => async (dispatch) => {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
 
     const { data } = await axios.get(
-      `https://ecommerce-gules-six.vercel.app/product/${id}`
+      `https://ecommerce-gules-six.vercel.app/api/v1/product/${id}`
     );
 
     dispatch({
@@ -131,7 +131,7 @@ export const updateProduct = (id, productData) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `https://ecommerce-gules-six.vercel.app/admin/product/${id}`,
+      `https://ecommerce-gules-six.vercel.app/api/v1/admin/product/${id}`,
       productData,
       config
     );
@@ -153,7 +153,7 @@ export const deleteProduct = (id) => async (dispatch) => {
     dispatch({ type: DELETE_PRODUCT_REQUEST });
 
     const { data } = await axios.delete(
-      `https://ecommerce-gules-six.vercel.app/admin/product/${id}`
+      `https://ecommerce-gules-six.vercel.app/api/v1/admin/product/${id}`
     );
 
     dispatch({
@@ -177,7 +177,7 @@ export const newReview = (reviewData) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `https://ecommerce-gules-six.vercel.app/review`,
+      `https://ecommerce-gules-six.vercel.app/api/v1/review`,
       reviewData,
       config
     );
@@ -199,7 +199,7 @@ export const getAllReviews = (id) => async (dispatch) => {
     dispatch({ type: ALL_REVIEW_REQUEST });
 
     const { data } = await axios.get(
-      `https://ecommerce-gules-six.vercel.app/reviews?id=${id}`
+      `https://ecommerce-gules-six.vercel.app/api/v1/reviews?id=${id}`
     );
 
     dispatch({
@@ -219,7 +219,7 @@ export const deleteReviews = (reviewId, productId) => async (dispatch) => {
     dispatch({ type: DELETE_REVIEW_REQUEST });
 
     const { data } = await axios.delete(
-      `https://ecommerce-gules-six.vercel.app/reviews?id=${reviewId}&productId=${productId}`
+      `https://ecommerce-gules-six.vercel.app/api/v1/reviews?id=${reviewId}&productId=${productId}`
     );
 
     dispatch({
