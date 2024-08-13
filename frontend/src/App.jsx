@@ -51,7 +51,7 @@ function App() {
 
   async function getStripeApiKey() {
     const { data } = await axios.get(
-      "https://ecommerce-gules-six.vercel.app/api/v1/stripeapikey"
+      "https://ecommerce-backend-nine-teal.vercel.app/api/v1/stripeapikey"
     );
     setStripeApiKey(data.stripeApiKey);
   }
