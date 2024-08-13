@@ -19,7 +19,9 @@ const __dirname = dirname(__filename);
 
 const app = express();
 
-dotenv.config({ path: "Backend/config/config.env" });
+if (process.env.NODE_ENV !== "PRODUCTION") {
+  dotenv.config({ path: "./config/config.env" });
+}
 
 app.use(
   cors({
