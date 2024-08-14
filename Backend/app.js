@@ -23,7 +23,7 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 }
 app.use(
   cors({
-    origin: "https://ecommerce-frontend-eight-pearl.vercel.app",
+    origin: "http://localhost:5173",
     credentials: true,
   })
 );
